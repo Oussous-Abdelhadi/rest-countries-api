@@ -12,15 +12,13 @@
     <title>Document</title>
 </head>
 <body>
-        <!-- <p>{{message}}</p>
-        <li v-for="tab in tabs">
-            {{ tab }}
-        </li> -->
-
         <div class="container">
             <header class="header">
-                <p id="title"> Where in the world?</p>
-                <p><i class="fa-regular fa-moon"></i> Dark mode</p>
+                <div class="header__content">
+                    <p id="title"> Where in the world?</p>
+                    <p @click="display_mode_dark" class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
+
+                </div>
             </header>
             <main class="main">
                 <header class="main__header">
@@ -34,38 +32,11 @@
                         <option value="Oceania">Oceania</option>
                     </select>
                 </header>
-                <section class="content">
-                    <div class="content__pays">
-                        <div class="img-pays"></div>
+                <section class="content" >
+                    <div class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
+                        <img  :src="pay.flags.png" class="img-pays"></img>
                         <div class="description-pays">
-                            <p class="name-pays">France</p>
-                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
-                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
-                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
-                        </div>
-                    </div>
-                    <div class="content__pays">
-                        <div class="img-pays"></div>
-                        <div class="description-pays">
-                            <p class="name-pays">France</p>
-                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
-                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
-                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
-                        </div>
-                    </div>
-                    <div class="content__pays">
-                        <div class="img-pays"></div>
-                        <div class="description-pays">
-                            <p class="name-pays">France</p>
-                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
-                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
-                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
-                        </div>
-                    </div>
-                    <div class="content__pays">
-                        <div class="img-pays"></div>
-                        <div class="description-pays">
-                            <p class="name-pays">France</p>
+                            <p class="name-pays">{{pay.translations.fra.official}}</p>
                             <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
                             <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
                             <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
@@ -75,7 +46,7 @@
             </main>
         </div>
 
-        
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 </body>

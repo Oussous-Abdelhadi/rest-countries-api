@@ -7,16 +7,21 @@ body {
 }
 
 .header {
-  padding: 0 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: hsl(0deg, 0%, 100%);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   height: 4rem;
 }
+.header .header__content {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .header #title {
   font-weight: 800;
+}
+.header .mode-light {
+  display: block;
 }
 
 .main {
@@ -26,6 +31,7 @@ body {
 .main__header {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 .main__header .input {
   border-radius: 5px;
@@ -62,11 +68,11 @@ body {
 .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   margin-top: 2.5rem;
 }
 .content .content__pays {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   width: 15rem;
   margin-bottom: 2rem;
@@ -75,18 +81,17 @@ body {
 }
 .content .content__pays .img-pays {
   height: 9rem;
+  width: 100%;
   border-radius: 7px 7px 0 0;
-  background-image: url(../image/fr.png);
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .content .content__pays .description-pays {
   padding-top: 1.5rem;
   padding-left: 1.5rem;
+  padding-right: 1.5rem;
   padding-bottom: 1rem;
 }
 .content .content__pays .description-pays .name-pays {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
   margin-top: 0;
@@ -99,8 +104,28 @@ body {
   font-weight: 600;
 }
 
-@media screen and (min-width: 512px) {
-  .content {
+@media screen and (min-width: 900px) {
+  .header .header__content {
+    max-width: 80rem;
+    margin: auto;
+  }
+  .main {
+    margin: auto;
+    margin-top: 2rem;
+    max-width: 80rem;
+    padding: 0 1rem;
+  }
+  .main__header {
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
+    margin: auto;
+  }
+  .main__header .input--search {
+    width: 15rem;
+    margin-bottom: 0rem;
+  }
+  .main__header .select {
+    width: 10rem;
   }
 }/*# sourceMappingURL=style.css.map */
