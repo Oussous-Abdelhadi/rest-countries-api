@@ -4,13 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/e9f99aff74.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-        <p>{{message}}</p>
+        <!-- <p>{{message}}</p>
         <li v-for="tab in tabs">
             {{ tab }}
-        </li>
+        </li> -->
+
+        <div class="container">
+            <header class="header">
+                <p id="title"> Where in the world?</p>
+                <p><i class="fa-regular fa-moon"></i> Dark mode</p>
+            </header>
+            <main class="main">
+                <header class="main__header">
+                    <input type="text" class="input input--search" placeholder="Search for a country...">
+                    <select name="region" class="input select">
+                        <option value="all" selected >Filter by Region</option>
+                        <option value="africa">africa</option>
+                        <option value="America">America</option>
+                        <option value="Asia">Asia</option>
+                        <option value="Europe">Europe</option>
+                        <option value="Oceania">Oceania</option>
+                    </select>
+                </header>
+                <section class="content">
+                    <div class="content__pays">
+                        <div class="img-pays"></div>
+                        <div class="description-pays">
+                            <p class="name-pays">France</p>
+                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
+                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
+                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
+                        </div>
+                    </div>
+                    <div class="content__pays">
+                        <div class="img-pays"></div>
+                        <div class="description-pays">
+                            <p class="name-pays">France</p>
+                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
+                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
+                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
+                        </div>
+                    </div>
+                    <div class="content__pays">
+                        <div class="img-pays"></div>
+                        <div class="description-pays">
+                            <p class="name-pays">France</p>
+                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
+                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
+                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
+                        </div>
+                    </div>
+                    <div class="content__pays">
+                        <div class="img-pays"></div>
+                        <div class="description-pays">
+                            <p class="name-pays">France</p>
+                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
+                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
+                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 </body>

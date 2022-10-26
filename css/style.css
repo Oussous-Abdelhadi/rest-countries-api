@@ -1,0 +1,106 @@
+body {
+  margin: 0;
+  font-family: "Nunito Sans", sans-serif;
+  list-style-type: none;
+  background-color: hsl(0deg, 0%, 98%);
+  font-size: 14px;
+}
+
+.header {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  height: 4rem;
+}
+.header #title {
+  font-weight: 800;
+}
+
+.main {
+  margin: 2rem 1rem;
+}
+
+.main__header {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main__header .input {
+  border-radius: 5px;
+  padding: 0.8rem;
+  border: 1px solid transparent;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.main__header .input--search {
+  width: 100%;
+  padding-left: 4rem;
+  background-image: url(../image/icon-search.svg);
+  background-repeat: no-repeat;
+  background-position: left 2em top 50%;
+  background-size: 1rem;
+  margin-bottom: 2rem;
+}
+.main__header .select {
+  width: 50%;
+  padding-left: 1rem;
+  background-color: hsl(0deg, 0%, 100%);
+  background-image: url(../image/icon-arrow.svg);
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  background-position: right 1em top 50%;
+  text-align: left;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.main__header .select::before {
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+.content .content__pays {
+  background-color: hsl(0deg, 0%, 100%);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  width: 15rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-radius: 7px;
+}
+.content .content__pays .img-pays {
+  height: 9rem;
+  border-radius: 7px 7px 0 0;
+  background-image: url(../image/fr.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.content .content__pays .description-pays {
+  padding-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 1rem;
+}
+.content .content__pays .description-pays .name-pays {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+.content .content__pays .description-pays .data-pays {
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+}
+.content .content__pays .description-pays .data {
+  font-weight: 600;
+}
+
+@media screen and (min-width: 512px) {
+  .content {
+    justify-content: space-between;
+  }
+}/*# sourceMappingURL=style.css.map */
