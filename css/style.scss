@@ -94,6 +94,8 @@ body {
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 2.5rem;
+    transform: scale(1);
+    cursor: pointer;
     .content__pays {
         background-color: #fff;
         @include box-shadow;
@@ -124,6 +126,9 @@ body {
             .data{
                 font-weight: 600;
             }
+        }
+        &:hover {
+            transform: scale(1.05);
         }
     }
 }

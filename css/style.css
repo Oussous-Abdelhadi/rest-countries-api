@@ -70,6 +70,8 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin-top: 2.5rem;
+  transform: scale(1);
+  cursor: pointer;
 }
 .content .content__pays {
   background-color: #fff;
@@ -102,6 +104,9 @@ body {
 }
 .content .content__pays .description-pays .data {
   font-weight: 600;
+}
+.content .content__pays:hover {
+  transform: scale(1.05);
 }
 
 @media screen and (min-width: 900px) {
