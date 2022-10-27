@@ -9,41 +9,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>The World</title>
 </head>
 <body>
         <div class="container">
             <header class="header">
                 <div class="header__content">
-                    <p id="title"> Where in the world?</p>
-                    <p @click="display_mode_dark" class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
+                    <p class="title"> Where in the world?</p>
+                    <p class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
 
                 </div>
             </header>
-            <main class="main">
+            <main v-else="modal" class="main">
                 <header class="main__header">
-                    <input type="text" class="input input--search" placeholder="Search for a country...">
-                    <select name="region" class="input select">
+                    <input @keyup="input" type="text" class="input input--search" placeholder="Search for a country...">
+                    <select @change="region" name="region" class="input select">
                         <option value="all" selected >Filter by Region</option>
-                        <option value="africa">africa</option>
-                        <option value="America">America</option>
-                        <option value="Asia">Asia</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Oceania">Oceania</option>
+                        <option value="africa">Africa</option>
+                        <option value="america">America</option>
+                        <option value="asia">Asia</option>
+                        <option value="europe">Europe</option>
+                        <option value="oceania">Oceania</option>
                     </select>
                 </header>
-                <section class="content" >
-                    <div class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
+                <section class="content">
+                    <div @click="toggle(); details_pays()" class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
                         <img  :src="pay.flags.png" class="img-pays"></img>
                         <div class="description-pays">
-                            <p class="name-pays">{{pay.translations.fra.official}}</p>
-                            <p class="data-pays"><span class="data">Population:</span><span class="data-population"></span></p>
-                            <p class="data-pays"><span class="data">Region:</span><span class="data-region"></span></p>
-                            <p class="data-pays"><span class="data">Capital:</span><span class="data-capital"></span></p>
+                            <p class="name-pays">{{pay.name.common}}</p>
+                            <p class="data-pays"><span class="data">Population:</span> {{ parseNumber(pay.population) }}</p>
+                            <p class="data-pays"><span class="data">Region:</span> {{pay.region}}</p>
+                            <p class="data-pays" v-for="cap in pay.capital"><span class="data">Capital:</span> {{cap}}</p>
                         </div>
                     </div>
                 </section>
             </main>
+            <section v-if="modal" class="container__details" >
+                <header class="header">
+                    <div class="header__content">
+                        <p class="title"> Where in the world?</p>
+                        <p class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
+                    </div>
+                </header>
+                <button @click="toggle">azy</button>
+            </section>
         </div>
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
