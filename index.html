@@ -16,11 +16,9 @@
             <header class="header">
                 <div class="header__content">
                     <p class="title"> Where in the world?</p>
-                    <p class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
-
                 </div>
             </header>
-            <main v-else="modal" class="main">
+            <main class="main">
                 <header class="main__header">
                     <input @keyup="input" type="text" class="input input--search" placeholder="Search for a country...">
                     <select @change="region" name="region" class="input select">
@@ -33,7 +31,7 @@
                     </select>
                 </header>
                 <section class="content">
-                    <div @click="toggle(); details_pays()" class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
+                    <div @click="show(); details_pays(pay)" class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
                         <img  :src="pay.flags.png" class="img-pays"></img>
                         <div class="description-pays">
                             <p class="name-pays">{{pay.name.common}}</p>
@@ -44,18 +42,55 @@
                     </div>
                 </section>
             </main>
-            <section v-if="modal" class="container__details" >
-                <header class="header">
-                    <div class="header__content">
-                        <p class="title"> Where in the world?</p>
-                        <p class="mode-light"><i class="fa-regular fa-moon"></i> Dark mode</p>
+            <section class="container__details hidden" >
+                <button @click="show()" class="btn"><i class="fa-sharp fa-solid fa-arrow-left"></i><span id="back">Back</span></button>
+                <div class="container__details__data" v-if="pays_detail">
+                    <div class="img_pays">
+                        <img :src="pays_detail.flags.png" alt="" class="details_img">
                     </div>
-                </header>
-                <button @click="toggle">azy</button>
+                    <div class="details">
+                    <p class="name-pays--details">{{pays_detail.name.common}}</p>
+                    <div class="all-data">
+                        <div class="all-data__left">
+
+                            <p><span class="data">Population:</span> {{parseNumber(pays_detail.population)}}</p>
+                            <p><span class="data">Region:</span> {{pays_detail.region}}</p>
+                            <p><span class="data" v-if="pays_detail.subregion">Sub Region:</span> {{pays_detail.subregion}}</p>
+                            <div v-if="pays_detail.capital">
+                                <p><span class="data">Capital:</span> {{parseData(pays_detail.capital)}}</p>
+                            </div>
+                        </div>
+                        <div class="details__plus--desktop">
+                            <p><span class="data">Top Level Domain:</span> {{parseData(pays_detail.tld)}}</p>
+                            <div v-if="pays_detail.currencies">
+                                <p><span class="data">Currencies: </span>
+                                    <span v-for="(currencies, abreviation) in pays_detail.currencies">
+                                    {{currencies.name}}, 
+                                    </span> 
+                                </p>
+                            </div>
+                            <div v-if="pays_detail.languages">
+                                <p><span class="data">Languages: </span> 
+                                    <span v-for="(languages, abreviation) in pays_detail.languages">
+                                        {{languages}}, 
+                                    </span> 
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="details__plus borders" v-if="pays_detail.borders">
+                            <p><span class="data">Border Countries:</span></p>
+                            <div class="border--countries" >
+                                <p class="border--countries__element" v-for="border in borders_d">{{border}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
 
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 </body>
