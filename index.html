@@ -30,7 +30,7 @@
                         <option value="oceania">Oceania</option>
                     </select>
                 </header>
-                <section class="content">
+                <section class="content hidden">
                     <div @click="show(); details_pays(pay)" class="content__pays" v-for="pay in pays" :key="pay.translations.fra">
                         <img  :src="pay.flags.png" class="img-pays"></img>
                         <div class="description-pays">

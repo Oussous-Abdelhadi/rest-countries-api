@@ -180,7 +180,7 @@ body {
 }
 .border--countries {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     .border--countries__element{
         text-align: center;
         background-color: $White;
@@ -227,7 +227,7 @@ body {
 
     .container__details__data  {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         .details_img{
             width: 100%;
         }
@@ -241,10 +241,10 @@ body {
             display: flex;
         }
         .borders p {
-            width: 30%;
+            width: 20%;
         }
         .border--countries {
-            width: 100%;
+            width: 80%;
             margin: 0;
         }
     }
@@ -258,4 +258,13 @@ body {
         margin-top: 0;
         width: 45%;
     }
+
+.border--countries .border--countries__element {
+    padding: 0.2rem 0;
+    width: 10%;
+}
+
+.border--countries {
+    justify-content: space-evenly;
+}
 }

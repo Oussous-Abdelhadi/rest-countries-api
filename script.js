@@ -90,12 +90,16 @@ createApp({
       var n = str.toString().replace(/_/g, "");
       return n;
     },
-
+    Time : function (){
+      console.log("yes");
+    }
     
   },
 
 
   mounted(){
+    var content = document.querySelector(".content");
+    content.classList.remove("hidden");
     axios.get('https://restcountries.com/v3.1/all')
     .then(response => this.pays = response.data.sort(
       (a, b) =>  a.name.common.localeCompare(b.name.common)
